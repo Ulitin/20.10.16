@@ -1,90 +1,62 @@
 #include <gtest/gtest.h>
-#include"polinbrom.h"
+#include "queue.h"
 
 TEST(Addition, correct_with_zero)
 {
-	EXPECT_TRUE(polindrom_or_not(0));
+	int *a;
+	a = 0;
+	ASSERT_ANY_THROW(fun(0, a, 0));
 }
 
-TEST(Addition, correct_with_one_element)
+TEST(Addition, correct_w_3)
 {
-	nambers* first;
-	first=new nambers;
-	first->date=5;
-	first->next=0;
-	EXPECT_TRUE(polindrom_or_not(first));
-}
-
-TEST(Addition, correct_with_five_element)
-{
-	nambers* first, *box;
-	first=new nambers;
-	box=first;
-	for(int i=0; i<5; i++)
-	{
-		box->date=5;
-		if(i!=4)
-		{
-			box->next=new nambers;
-			box=box->next;
-		}
-		box->next=0;
+	int size = 5;
+	int *a;
+	a = new int [size];
+	for(int i = 0; i < size; i++){
+		a[i]= i * 3;
 	}
-	EXPECT_TRUE(polindrom_or_not(first));
+	double *b;
+	b = fun(3, a, size);
+	ASSERT_TRUE(b[0]==3);
+	ASSERT_TRUE(b[1]==6);
+	ASSERT_TRUE(b[2]==9);
 }
 
-TEST(Addition, ancorrect_with_five_element)
+TEST(Addition, correct_w_max)
 {
-	nambers* first, *box;
-	first=new nambers;
-	box=first;
-	for(int i=0; i<5; i++)
-	{
-		box->date=i;
-		if(i!=4)
-		{
-			box->next=new nambers;
-			box=box->next;
-		}
-		box->next=0;
+	int size = 4;
+	int *a;
+	a = new int[size];
+	for (int i = 0; i < size; i++) {
+		a[i] = i;
 	}
-	EXPECT_FALSE(polindrom_or_not(first));
+	double *b;
+	b = fun(size, a, size);
+	ASSERT_TRUE(b[0] == 1,5);
 }
 
-TEST(Addition, correct_with_four_element)
+TEST(Addition, correct_w_min)
 {
-	nambers* first, *box;
-	first=new nambers;
-	box=first;
-	for(int i=0; i<4; i++)
-	{
-		box->date=1;
-		if(i!=3)
-		{
-			box->next=new nambers;
-			box=box->next;
-		}
-		box->next=0;
+	int size = 3;
+	int *a;
+	a = new int[size];
+	for (int i = 0; i < size; i++) {
+		a[i] = i;
 	}
-	EXPECT_TRUE(polindrom_or_not(first));
+	double *b;
+	b = fun(1, a, size);
+	for (int i = 0; i < size; i++) {
+		ASSERT_TRUE(b[i] == i);
+	}
 }
 
-TEST(Addition, ancorrect_with_four_element)
+TEST(Addition, correct_w_very_big)
 {
-	nambers* first, *box;
-	first=new nambers;
-	box=first;
-	for(int i=0; i<4; i++)
-	{
-		box->date=i;
-		if(i!=3)
-		{
-			box->next=new nambers;
-			box=box->next;
-		}
-		box->next=0;
-	}
-	EXPECT_FALSE(polindrom_or_not(first));
+	int *a;
+	a = new int;
+	a[0] = 0;
+	ASSERT_ANY_THROW(fun(10, a, 1));
 }
 
 int main(int ac, char* av[])
