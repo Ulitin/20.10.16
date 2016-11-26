@@ -2,17 +2,18 @@
 
 int stack :: min() {
     if (element != 0) {
-        int min = element->data;
+        CNode* min;
+		min = element;
         element = element->next;
         while (element != 0) {
-            if (min > element->data) {
-                min = element -> data;
+            if (min->data > element->data) {
+                min = element;
             }
             element = element->next;
         }
-        return min;
+        return min->data;
     } else if (element == 0) {
-        throw 1;
+		throw 1;
     }
 }
 

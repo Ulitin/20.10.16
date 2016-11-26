@@ -1,5 +1,6 @@
 #ifndef INCLUDE_STACK_H_
 #define INCLUDE_STACK_H_
+
 struct CNode {
     int data;
     CNode* next;
@@ -31,7 +32,7 @@ class stack {
         if (element != 0) {
             return element -> data;
         } else if (element == 0) {
-            throw 1;
+			throw 1;
         }
     }
 
@@ -40,7 +41,7 @@ class stack {
             CNode* box = element;
             element = element -> next;
             delete box;
-                return true;
+            return true;
         }
         return false;
     }
