@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <stack.h>
+#include "stack.h"
 
 TEST(Addition, correct_with_zero) {
     stack a;
