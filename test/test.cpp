@@ -59,6 +59,7 @@ TEST(Addition, found_min_in_three_el_3) {
 	EXPECT_EQ(-15, a.min());
 }
 
+
 int main(int ac, char* av[]) {
   testing::InitGoogleTest(&ac, av);
   return RUN_ALL_TESTS();
