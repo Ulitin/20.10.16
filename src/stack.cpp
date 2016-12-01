@@ -1,19 +1,11 @@
 # include "stack.h"
+#include <stdexcept>
 
 int stack :: min() {
     if (element != 0) {
-        CNode* min;
-		min = element;
-        element = element->next;
-        while (element != 0) {
-            if (min->data > element->data) {
-                min = element;
-            }
-            element = element->next;
-        }
-        return min->data;
+		return min_elem->data;
     } else if (element == 0) {
-		throw 1;
+		throw std::logic_error("stack is empty");
     }
 }
 
